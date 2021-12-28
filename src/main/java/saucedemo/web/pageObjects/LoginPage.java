@@ -1,9 +1,11 @@
 package saucedemo.web.pageObjects;
+
+import saucedemo.testObject.objects.ILoginObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class LoginPage extends BasePage {
+public class LoginPage extends BasePage implements ILoginObject {
     private final By usernameTxt = By.cssSelector("#user-name");
     private final By passwordTxt = By.cssSelector("#password");
     private final By logiBtn = By.cssSelector("#login-button");
@@ -19,42 +21,36 @@ public class LoginPage extends BasePage {
     // write password
     // click login
 
-    public void fillInUsername(String username) throws InterruptedException {
+    public void fillInUsername(String username) {
         WebElement usernameTxtElement = driver.findElement(usernameTxt);
         usernameTxtElement.clear();
         usernameTxtElement.sendKeys(username);
-        Thread.sleep(2000);
     }
 
-    public void fillInPassword(String password) throws InterruptedException {
+    public void fillInPassword(String password){
         WebElement usernameTxtElement = driver.findElement(passwordTxt);
         usernameTxtElement.clear();
         usernameTxtElement.sendKeys(password);
-        Thread.sleep(2000);
     }
 
-    private void clickLogin() throws InterruptedException {
+    public void clickLogin(){
         driver.findElement(logiBtn).click();
-        Thread.sleep(5000);
     }
 
-    // gebruik alle methoden
-
-    public void Login(String username, String password) throws InterruptedException {
-        fillInPassword(password);
+    public void login(String username, String password) {
         fillInUsername(username);
+        fillInPassword(password);
         clickLogin();
     }
 
-    public String getErrorMessage()
-    {
+    @Override
+    public String getErrormessage() {
         return driver.findElement(errorContainerDiv).getText();
     }
+
     public String getURL()
     {
         return driver.getCurrentUrl();
     }
-
-
 
 }

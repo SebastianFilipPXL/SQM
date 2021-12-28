@@ -1,21 +1,35 @@
 package saucedemo.web.pageObjects;
 
-import net.bytebuddy.agent.builder.AgentBuilder;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.Point;
+import saucedemo.testObject.objects.IAllObjects;
+import saucedemo.testObject.objects.ILoginObject;
+import saucedemo.testObject.objects.IProductObject;
 import saucedemo.web.utils.BrowserUtil;
+import org.openqa.selenium.WebDriver;
 
-public class AllPages {
+public class AllPages implements IAllObjects {
     private WebDriver driver;
 
     public LoginPage loginPage;
-    public InventoryPage inventoryPage;
+    public ProductPage productPage;
+
 
     public AllPages(){
         driver = BrowserUtil.createBrowser();
+
         loginPage = new LoginPage(driver);
-        inventoryPage = new InventoryPage(driver);
+        productPage = new ProductPage(driver);
     }
 
-    public void closeBrowser() {driver.quit();}
+    @Override
+    public ILoginObject loginObject() {
+        return loginPage;
+    }
 
+    @Override
+    public IProductObject productObject() {
+        return productPage;
+    }
+
+    public void quit(){driver.quit();}
 }

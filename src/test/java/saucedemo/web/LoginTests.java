@@ -8,7 +8,9 @@ import java.util.concurrent.TimeUnit;
 import static com.google.common.truth.Truth.assertThat;
 
 
+
 public class LoginTests {
+    /*
     AllPages pages;
     final String username = "standard_user";
     final String password = "secret_sauce";
@@ -49,6 +51,11 @@ public class LoginTests {
 
     // incorrect password + locked out user
 
+    */
+
+
+
+
 
     /*
     @Test
@@ -81,8 +88,15 @@ public class LoginTests {
         System.out.println(pages.secureAreaPage.getSuccessMessage());
     } */
 
+
+
+
+
+
+
+ /*
     @AfterClass
     public void testTeardown(){
         pages.closeBrowser();
-    }
+    }*/
 }

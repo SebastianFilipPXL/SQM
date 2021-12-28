@@ -1,0 +1,14 @@
+{
+  "appiumServer": "http://localhost:4723/wd/hub",
+  "deviceName": "sdk_gphone_x86",
+  "platformVersion": "11",
+  "platformName": "Android",
+  "browserName": "Chrome",
+  "chromeDriverExecutable": "C:\\AppiumBrowser\\chromedriver.exe",
+  "baseUrl": "https://www.saucedemo.com/",
+  "appPackage": "com.android.chrome",
+  "appActivity": "com.google.android.apps.chrome.Main",
+  "noReset": "true",
+  "fullReset": "false",
+  "defaultTimeout": 10000
+}

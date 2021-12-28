@@ -5,7 +5,7 @@ import saucedemo.web.pageObjects.AllPages;
 
 public class LoginTests {
     public static void main(String[] args){
-        AllScreens pages = new AllScreens();
+        /*AllScreens pages = new AllScreens();
 
         pages.loginScreen.NavigateToScreen();
 
@@ -14,6 +14,6 @@ public class LoginTests {
 
         System.out.println(successMessage);
 
-        pages.closeBrowser();
+        pages.closeBrowser();*/
     }
 }
