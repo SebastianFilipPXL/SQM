@@ -1,5 +1,15 @@
 package saucedemo.testObject.objects;
 
-public interface IProductObject {
-    String getSuccessMessage();
+public interface IProductObject extends IBaseObject {
+    void selectFilterAtoZ();
+    void selectFilterZtoA();
+    void selectFilterLowToHigh();
+    void selectFilterHighToLow();
+    void goToCart();
+    void addProductToCart();
+    void removeProductFromCart();
+    String getBackPackButtonText();
+    String getFirstItemText();
+    String getURL();
+
 }

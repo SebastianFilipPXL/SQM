@@ -12,7 +12,7 @@ public class LoginScreen extends BaseScreen implements ILoginObject {
     private final By usernameTxt = By.xpath("//*[@id='user-name']");
     private final By passwordTxt = By.xpath("//*[@id='password']");
     private final By logiBtn = By.xpath("//*[@id='login-button']");
-    //private final By errorContainerDiv = By.xpath("//*[@id='login_button_container']/div/form/div[3]/h3");
+    private final By errorContainerDiv = By.xpath("//*[@id='login_button_container']/div/form/div[3]");
 
     //private final By errorContainerDiv = By.cssSelector(".error-message-container h3");
 
@@ -44,27 +44,19 @@ public class LoginScreen extends BaseScreen implements ILoginObject {
 
     @Override
     public void login(String username, String password) {
-
+        fillInPassword(password);
+        fillInUsername(username);
+        clickLogin();
     }
-
 
     @Override
     public String getErrormessage() {
-        return "this is not working";
+        return driver.findElement(errorContainerDiv).getText();
     }
 
     @Override
     public String getURL() {
         return driver.getCurrentUrl();
     }
-
-    // gebruik alle methoden en doe hier de finale toDo's met hoofdletters
-
-    public void Login(String username, String password){
-        fillInPassword(password);
-        fillInUsername(username);
-        clickLogin();
-    }
-
 
 }

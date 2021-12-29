@@ -33,37 +33,37 @@ public class Login {
     @Test
     public void standardUserLogin() {
         testObject.loginObject().login(username, password);
-        assertThat(testObject.loginObject().getURL().contains("inventory"));
+        assertThat(testObject.loginObject().getURL()).contains("inventory");
     }
 
     @Test
     public void emptyUsername() {
         testObject.loginObject().login("",password);
-        assertThat(testObject.loginObject().getErrormessage().contains("Epic sadface: Username is required"));
+        assertThat(testObject.loginObject().getErrormessage()).contains("Epic sadface: Username is required");
     }
 
     @Test
     public void emptyPassword() {
         testObject.loginObject().login(username, "");
-        assertThat(testObject.loginObject().getErrormessage().contains("Epic sadface: Password is required"));
+        assertThat(testObject.loginObject().getErrormessage()).contains("Epic sadface: Password is required");
     }
 
     @Test
     public void incorrectUsername() {
         testObject.loginObject().login("username",password);
-        assertThat(testObject.loginObject().getErrormessage().contains("Epic sadface: Username and password do not match any user in this service"));
+        assertThat(testObject.loginObject().getErrormessage()).contains("Epic sadface: Username and password do not match any user in this service");
     }
 
     @Test
     public void incorrectPassword() {
         testObject.loginObject().login(username,"password");
-        assertThat(testObject.loginObject().getErrormessage().contains("Epic sadface: Username and password do not match any user in this service"));
+        assertThat(testObject.loginObject().getErrormessage()).contains("Epic sadface: Username and password do not match any user in this service");
     }
 
     @Test
     public void lockedOutUser() {
-        testObject.loginObject().login(usernameLockedOut,"password");
-        assertThat(testObject.loginObject().getErrormessage().contains("Epic sadface: Sorry, this user has been locked out."));
+        testObject.loginObject().login(usernameLockedOut,password);
+        assertThat(testObject.loginObject().getErrormessage()).contains("Epic sadface: Sorry, this user has been locked out.");
     }
 
     @AfterClass

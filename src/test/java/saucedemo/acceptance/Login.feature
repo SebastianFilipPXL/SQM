@@ -1,7 +1,7 @@
 Feature: JRI-001
   Description: issue description
 
-  Scenario: Log into the heroku app using valid credentials
-    Given the heroku app is opened
-    When a valid user logs into the app
-    Then a welcome message is shown
+  Scenario: Log into saucedemo using valid credentials
+    Given the saucedemo.com is opened
+    When a valid user logs in
+    Then the inventory page is shown
