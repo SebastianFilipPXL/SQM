@@ -32,4 +32,16 @@ public class PostcodesService extends BaseService{
         Response response = getPostcodesResponse(latitude, longitude);
         return Postcode.getPostcodeList(response);
     }
+
+    public Response getValidation(String postcode){
+        return when().get(baseURL + endpoint + postcode + "/validate");
+    }
+
+    public Response getAutocompletion(String postcode){
+        return when().get(baseURL + endpoint + postcode + "/autocomplete");
+    }
+
+    public Response getQuery(String postcode){
+        return when().get(baseURL + endpoint + "?q=" + postcode);
+    }
 }

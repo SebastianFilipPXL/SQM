@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="SQM" />
         <module name="SQMGroep6" />
+        <module name="SQMPE" />
       </profile>
     </annotationProcessing>
   </component>
