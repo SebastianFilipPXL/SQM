@@ -16,6 +16,7 @@ public class ProductScreen extends BaseScreen implements IProductObject {
     private final By backpackAddButton = By.xpath("//*[@id=\"add-to-cart-sauce-labs-backpack\"]");
     private final By backpackRemoveButton = By.xpath("//*[@id=\"remove-sauce-labs-backpack\"]");
     private final By backpackButton =  By.xpath("//*[@id=\"add-to-cart-sauce-labs-backpack\"]");
+    private final By backpackImage = By.xpath("//*[@id=\"item_4_img_link\"]/img");
 
 
     public ProductScreen(AndroidDriver<AndroidElement> driver){
@@ -64,7 +65,7 @@ public class ProductScreen extends BaseScreen implements IProductObject {
     }
 
     public void clickBackPack(){
-        WebElement backpackButtonElement = driver.findElement(backpackButton);
+        WebElement backpackButtonElement = driver.findElement(backpackImage);
         backpackButtonElement.click();
     }
 

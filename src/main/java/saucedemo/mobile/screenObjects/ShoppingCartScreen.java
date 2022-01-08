@@ -33,4 +33,11 @@ public class ShoppingCartScreen extends BaseScreen implements IShoppingCartObjec
         WebElement removeItemElement = driver.findElement(removeItemButton);
         removeItemElement.click();
     }
+
+    @Override
+    public String getURL()
+    {
+        return driver.getCurrentUrl();
+    }
+
 }

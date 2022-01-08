@@ -44,25 +44,25 @@ public class CheckoutInformationPage {
     @Test
     public void emptyFirstNameContinue() {
         testObject.checkoutInformationObject().continueCorrectly("", "Lastname", "1000");
-        assertThat(testObject.loginObject().getErrormessage()).contains("Error: First Name is required");
+        assertThat(testObject.checkoutInformationObject().getErrorMessage()).contains("Error: First Name is required");
     }
 
     @Test
     public void emptyLastNameContinue() {
         testObject.checkoutInformationObject().continueCorrectly("Firstname", "", "1000");
-        assertThat(testObject.loginObject().getErrormessage()).contains("Error: Last Name is required");
+        assertThat(testObject.checkoutInformationObject().getErrorMessage()).contains("Error: Last Name is required");
     }
 
     @Test
     public void emptyPostalCodeContinue() {
         testObject.checkoutInformationObject().continueCorrectly("Firstname", "Lastname", "");
-        assertThat(testObject.loginObject().getErrormessage()).contains("Error: Postal Code is required");
+        assertThat(testObject.checkoutInformationObject().getErrorMessage()).contains("Error: Postal Code is required");
     }
 
     @Test
     public void emptyFormContinue() {
         testObject.checkoutInformationObject().continueCorrectly("", "", "");
-        assertThat(testObject.loginObject().getErrormessage()).contains("Error: First Name is required");
+        assertThat(testObject.checkoutInformationObject().getErrorMessage()).contains("Error: First Name is required");
     }
 
     @AfterClass
