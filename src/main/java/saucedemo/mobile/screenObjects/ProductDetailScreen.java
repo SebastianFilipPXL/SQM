@@ -13,10 +13,8 @@ public class ProductDetailScreen extends BaseScreen implements IProductDetailObj
 
     private final By backpackAddButton = By.xpath("//*[@id=\"add-to-cart-sauce-labs-backpack\"]");
     private final By backpackRemoveButton = By.xpath("//*[@id=\"remove-sauce-labs-backpack\"]");
-    private final By backToProductsButton = By.xpath("///*[@id=\"back-to-products\"]");
+    private final By backToProductsButton = By.xpath("//*[@id=\"back-to-products\"]");
     private final By backpackNameClass = By.xpath("//*[@id=\"inventory_item_container\"]/div/div/div[2]/div[1]");
-    //*[@id="add-to-cart-sauce-labs-backpack"]
-    //*[@id="add-to-cart-sauce-labs-backpack"]
 
 
     public ProductDetailScreen(AndroidDriver<AndroidElement> driver){
@@ -26,19 +24,26 @@ public class ProductDetailScreen extends BaseScreen implements IProductDetailObj
     // set methods that do stuff --> vb
 
 
-    public void goBackToProducts(){
-        WebElement backToProducts = driver.findElement(backToProductsButton);
-        backToProducts.click();
-    }
-
     public void addProductToCart(){
         WebElement backpackAddButtonElement = driver.findElement(backpackAddButton);
         backpackAddButtonElement.click();
     }
 
+
     public void removeProductFromCart(){
-        WebElement backpackAddButtonElement = driver.findElement(backpackRemoveButton);
-        backpackAddButtonElement.click();
+        WebElement backpackRemoveButtonElement = driver.findElement(backpackRemoveButton);
+        backpackRemoveButtonElement.click();
+    }
+
+
+    public void goBackToProducts(){
+        WebElement backToProducts = driver.findElement(backToProductsButton);
+        backToProducts.click();
+    }
+
+    public String getProductName(){
+        WebElement backBackNameElement = driver.findElement(backpackNameClass);
+        return backBackNameElement.getText();
     }
 
     public String getBackPackButtonText(){
@@ -51,9 +56,4 @@ public class ProductDetailScreen extends BaseScreen implements IProductDetailObj
         }
     }
 
-    @Override
-    public String getProductName() {
-        WebElement backBackNameElement = driver.findElement(backpackNameClass);
-        return backBackNameElement.getText();
-    }
 }

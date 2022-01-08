@@ -11,6 +11,8 @@ public class CheckoutInformationPage extends BasePage implements ICheckoutInform
     private final By firstNameField = By.cssSelector("#first-name");
     private final By lastNameField = By.cssSelector("#last-name");
     private final By postalCodeField = By.cssSelector("#postal-code");
+    private final By errorClass = By.cssSelector(".error-message-container.error");
+
 
     public CheckoutInformationPage(WebDriver driver){
         super(driver, "checkout-step-one.html");
@@ -52,5 +54,11 @@ public class CheckoutInformationPage extends BasePage implements ICheckoutInform
         fillInLastName(lastName);
         fillInPostalCode(postalCode);
         clickContinue();
+    }
+
+    @Override
+    public String getErrorMessage(){
+        WebElement errorElement = driver.findElement(errorClass);
+        return errorElement.getText();
     }
 }

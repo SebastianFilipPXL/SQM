@@ -4,4 +4,5 @@ public interface ICheckoutInformationObject {
     void clickCancel();
     void clickContinue();
     void continueCorrectly(String firstname, String lastname, String s);
+    String getErrorMessage();
 }

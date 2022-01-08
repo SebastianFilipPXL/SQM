@@ -12,6 +12,8 @@ public class CheckoutInformationScreen extends BaseScreen implements ICheckoutIn
     private final By firstNameField = By.xpath("//*[@id=\"first-name\"]");
     private final By lastNameField = By.xpath("//*[@id=\"last-name\"]");
     private final By postalCodeField = By.xpath("//*[@id=\"postal-code\"]");
+    private final By errorClass = By.xpath("//*[@id=\"checkout_info_container\"]/div/form/div[1]/div[4]");
+
 
     public CheckoutInformationScreen(AndroidDriver<AndroidElement> driver){
         super(driver, "cart.html");
@@ -54,4 +56,11 @@ public class CheckoutInformationScreen extends BaseScreen implements ICheckoutIn
         fillInPostalCode(postalCode);
         clickContinue();
     }
+
+    public String getErrorMessage(){
+        WebElement errorElement = driver.findElement(errorClass);
+        return errorElement.getText();
+    }
+
+
 }

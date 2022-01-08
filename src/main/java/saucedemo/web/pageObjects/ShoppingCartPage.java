@@ -29,4 +29,8 @@ public class ShoppingCartPage extends BasePage implements IShoppingCartObject{
         WebElement removeItemElement = driver.findElement(removeItemButton);
         removeItemElement.click();
     }
+    public String getURL()
+    {
+        return driver.getCurrentUrl();
+    }
 }
