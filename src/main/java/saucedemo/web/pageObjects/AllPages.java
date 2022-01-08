@@ -4,12 +4,14 @@ import org.openqa.selenium.Point;
 import saucedemo.testObject.objects.IAllObjects;
 import saucedemo.testObject.objects.ILoginObject;
 import saucedemo.testObject.objects.IProductObject;
+import saucedemo.testObject.objects.IProductDetailObject;
 import saucedemo.web.utils.BrowserUtil;
 import org.openqa.selenium.WebDriver;
 
 public class AllPages implements IAllObjects {
     private WebDriver driver;
 
+    public ProductDetailPage productDetailPage;
     public LoginPage loginPage;
     public ProductPage productPage;
 
@@ -19,6 +21,7 @@ public class AllPages implements IAllObjects {
 
         loginPage = new LoginPage(driver);
         productPage = new ProductPage(driver);
+        productDetailPage = new ProductDetailPage(driver);
     }
 
     @Override
@@ -29,6 +32,11 @@ public class AllPages implements IAllObjects {
     @Override
     public IProductObject productObject() {
         return productPage;
+    }
+
+    @Override
+    public IProductDetailObject productDetailObject() {
+        return productDetailPage;
     }
 
     public void quit(){driver.quit();}

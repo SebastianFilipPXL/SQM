@@ -8,8 +8,10 @@ public interface IProductObject extends IBaseObject {
     void goToCart();
     void addProductToCart();
     void removeProductFromCart();
+    void clickBackPack();
     String getBackPackButtonText();
     String getFirstItemText();
     String getURL();
+    String getBackpackName();
 
 }

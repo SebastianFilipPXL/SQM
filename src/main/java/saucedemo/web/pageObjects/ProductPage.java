@@ -13,6 +13,8 @@ public class ProductPage extends BasePage implements IProductObject {
     private final By shoppingCartContainer = By.cssSelector("#shopping_cart_container");
     private final By backpackAddButton = By.cssSelector("#add-to-cart-sauce-labs-backpack");
     private final By backpackRemoveButton = By.cssSelector("#remove-sauce-labs-backpack");
+    private final By backpackButton = By.cssSelector(".inventory_item_name");
+
 
 
     public ProductPage(WebDriver driver){
@@ -61,11 +63,20 @@ public class ProductPage extends BasePage implements IProductObject {
         backpackAddButtonElement.click();
     }
 
+    public void clickBackPack(){
+        WebElement backpackButtonElement = driver.findElement(backpackButton);
+        backpackButtonElement.click();
+    }
+
 
     public String getFirstItemText(){
         return driver.findElement(itemName).getText();
     }
 
+    public String getBackpackName(){
+        WebElement backpackButtonElement = driver.findElement(backpackButton);
+        return backpackButtonElement.getText();
+    }
 
     public String getURL(){
         return driver.getCurrentUrl();
@@ -80,4 +91,7 @@ public class ProductPage extends BasePage implements IProductObject {
             return backpackRemoveButtonElement.getText();
         }
     }
+
+
+
 }
