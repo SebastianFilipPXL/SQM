@@ -15,6 +15,8 @@ public class ProductDetailScreen extends BaseScreen implements IProductDetailObj
     private final By backpackRemoveButton = By.xpath("//*[@id=\"remove-sauce-labs-backpack\"]");
     private final By backToProductsButton = By.xpath("///*[@id=\"back-to-products\"]");
     private final By backpackNameClass = By.xpath("//*[@id=\"inventory_item_container\"]/div/div/div[2]/div[1]");
+    //*[@id="add-to-cart-sauce-labs-backpack"]
+    //*[@id="add-to-cart-sauce-labs-backpack"]
 
 
     public ProductDetailScreen(AndroidDriver<AndroidElement> driver){

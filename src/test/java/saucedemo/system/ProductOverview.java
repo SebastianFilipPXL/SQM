@@ -1,6 +1,5 @@
 package saucedemo.system;
 
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeMethod;
 import saucedemo.testObject.objects.IAllObjects;
 import saucedemo.testObject.utils.ObjectStrategy;
@@ -12,48 +11,43 @@ import saucedemo.web.pageObjects.AllPages;
 
 import static com.google.common.truth.Truth.assertThat;
 
-public class DetailPage {
+public class ProductOverview {
     IAllObjects testObject;
-
-
     final String username = "standard_user";
     final String password = "secret_sauce";
-
 
     @BeforeClass
     public void testSetup(){
         testObject = ObjectStrategy.createTestObject();
         testObject.loginObject().navigateTo();
         testObject.loginObject().login(username, password);
-        testObject.productObject().clickBackPack();
+        testObject.productObject().addProductToCart();
+
     }
 
-    @Test
-    public void addProductToCart() {
-        testObject.productDetailObject().addProductToCart();
-        assertThat(testObject.productDetailObject().getBackPackButtonText()).contains("REMOVE");
+    @BeforeMethod
+    public void testSetup2(){
+        testObject.productObject().goToCart();
+        testObject.shoppingCartObject().clickCheckout();
+        testObject.checkoutInformationObject().continueCorrectly("Jos","bob","4040");
     }
 
-    @Test
-    public void removeProductFromCart() {
-        testObject.productDetailObject().removeProductFromCart();
-        assertThat(testObject.productDetailObject().getBackPackButtonText()).contains("ADD TO CART");
-    }
 
     @Test
-    public void backToProducts() {
-        testObject.productDetailObject().goBackToProducts();
+    public void cancelOrder() {
+        testObject.productOverviewObject().cancelOrder();
         assertThat(testObject.productObject().getURL()).startsWith("https://www.saucedemo.com/inventory.html");
     }
 
     @Test
-    public void correctItemOpened() {
-        testObject.productDetailObject().navigateTo();
-        assertThat(testObject.productDetailObject().getProductName()).contains("Sauce Labs Backpack");
+    public void finishOrder() {
+        testObject.productOverviewObject().finishOrder();
+        assertThat(testObject.productObject().getURL()).startsWith("https://www.saucedemo.com/checkout-complete.html");
     }
 
     @AfterClass
     public void testTearDown(){
         testObject.quit();
     }
+
 }

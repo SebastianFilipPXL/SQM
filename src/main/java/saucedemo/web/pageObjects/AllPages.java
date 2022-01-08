@@ -1,10 +1,8 @@
 package saucedemo.web.pageObjects;
 
 import org.openqa.selenium.Point;
-import saucedemo.testObject.objects.IAllObjects;
-import saucedemo.testObject.objects.ILoginObject;
-import saucedemo.testObject.objects.IProductObject;
-import saucedemo.testObject.objects.IProductDetailObject;
+import saucedemo.mobile.screenObjects.ProductOverviewScreen;
+import saucedemo.testObject.objects.*;
 import saucedemo.web.utils.BrowserUtil;
 import org.openqa.selenium.WebDriver;
 
@@ -14,6 +12,9 @@ public class AllPages implements IAllObjects {
     public ProductDetailPage productDetailPage;
     public LoginPage loginPage;
     public ProductPage productPage;
+    public ProductOverviewPage productOverviewPage;
+    public ShoppingCartPage shoppingCartPage;
+    public CheckoutInformationPage checkoutInformationPage;
 
 
     public AllPages(){
@@ -22,6 +23,9 @@ public class AllPages implements IAllObjects {
         loginPage = new LoginPage(driver);
         productPage = new ProductPage(driver);
         productDetailPage = new ProductDetailPage(driver);
+        productOverviewPage= new ProductOverviewPage(driver);
+        shoppingCartPage = new ShoppingCartPage(driver);
+        checkoutInformationPage = new CheckoutInformationPage(driver);
     }
 
     @Override
@@ -37,6 +41,19 @@ public class AllPages implements IAllObjects {
     @Override
     public IProductDetailObject productDetailObject() {
         return productDetailPage;
+    }
+
+    @Override
+    public IProductOverviewObject productOverviewObject() {
+        return productOverviewPage;
+    }
+    @Override
+    public IShoppingCartObject shoppingCartObject() {
+        return shoppingCartPage;
+    }
+    @Override
+    public CheckoutInformationPage checkoutInformationObject() {
+        return checkoutInformationPage;
     }
 
     public void quit(){driver.quit();}
