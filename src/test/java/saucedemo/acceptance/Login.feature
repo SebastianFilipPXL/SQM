@@ -1,4 +1,4 @@
-Feature: SQM2122T06-11
+Feature: SQM2122T06-11, SQM2122T06-33
   Description: As a user I want to login with valid credentials
 
   Scenario: Log into saucedemo using valid credentials

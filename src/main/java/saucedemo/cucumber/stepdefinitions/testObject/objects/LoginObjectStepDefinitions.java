@@ -47,7 +47,7 @@ public class LoginObjectStepDefinitions {
 
     @Then("the login page is shown with an error")
     public void the_login_page_is_shown_with_an_error() {
-        assertThat(loginObject.getErrormessage().contains(" "));
+        assertThat(loginObject.getErrormessage()).contains(" ");
     }
 }
 
